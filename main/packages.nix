@@ -1,0 +1,55 @@
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
+    argbash
+    aseprite
+    cava
+    cmatrix
+    cmus
+    efibootmgr
+    eww
+    fastfetch
+    feh
+    freetube
+    git
+    gum
+    htop
+    hyprpaper
+    kitty
+    libreoffice-qt-fresh
+    librewolf-bin
+    lutris
+    maim
+    nftables
+    p7zip
+    picom-pijulius
+    polybar
+    prismlauncher
+    protonup-qt
+    python315
+    qbittorrent
+    qutebrowser
+    rofi
+    sleek-todo
+    smartmontools
+    spotdl
+    sxhkd
+    toilet
+    tree
+    tty-clock
+    unrar
+    unzip
+    ventoy-full-qt
+    vesktop
+    vifm
+    vim
+    vscodium
+    wget
+    wmutils-core
+    xclip
+    xtitle
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+}

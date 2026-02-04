@@ -1,0 +1,11 @@
+{ ... }: {
+  environment.etc."xdg/picom/picom.conf".text = ''
+    backend = "glx";
+    corner-radius = 10;
+
+    rounded-corners-exclude = [
+      "window_type = 'dock'",
+      "class_g = 'Polybar'"
+    ];
+  '';
+}
