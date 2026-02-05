@@ -25,7 +25,6 @@
     polybar
     prismlauncher
     protonup-qt
-    python315
     qbittorrent
     qutebrowser
     rofi
@@ -38,6 +37,7 @@
     tty-clock
     unrar
     unzip
+    uv
     ventoy-full-qt
     vesktop
     vifm
