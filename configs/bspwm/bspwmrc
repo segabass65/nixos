@@ -3,6 +3,8 @@
 ~/.config/bspwm/scripts/autostart.sh
 ~/.config/bspwm/scripts/setup_workspaces.sh
 
+hsetroot -solid "#181825"
+
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
 bspc config pointer_follows_focus true

@@ -3,8 +3,6 @@
 pkill -x sxhkd
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 
-feh --bg-scale /usr/share/wallpapers/DarkestHour/contents/images/1920x1080.jpg
-
 pkill -x picom
 picom -b
 
