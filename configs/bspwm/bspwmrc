@@ -1,5 +1,7 @@
 #!/bin/sh
 
+setxkbmap -layout "us,ru"
+
 hsetroot -solid "#181825"
 
 bspc config pointer_follows_monitor true
