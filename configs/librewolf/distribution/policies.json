@@ -1,0 +1,123 @@
+{
+    "__COMMENT__ More Information": "https://github.com/mozilla/policy-templates/blob/master/README.md",
+    "policies": {
+        "AppUpdateURL": "https://localhost",
+        "DisableAppUpdate": true,
+        "OverrideFirstRunPage": "",
+        "OverridePostUpdatePage": "",
+        "DisableSystemAddonUpdate": true,
+        "DisableProfileImport": false,
+        "DisableFirefoxStudies": true,
+        "DisableTelemetry": true,
+        "DisableFeedbackCommands": true,
+        "DisablePocket": true,
+        "DisableSetDesktopBackground": false,
+        "DisableDeveloperTools": false,
+        "NoDefaultBookmarks": true,
+        "WebsiteFilter": {
+            "Block": [
+                "https://localhost/*"
+            ],
+            "Exceptions": [
+                "https://localhost/*"
+            ]
+        },
+        "ExtensionSettings": {
+            "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true
+            },
+            "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{036a55b4-5e72-4d05-a06c-cba2dfcc134a}/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "{73a6fe31-595d-460b-a920-fcc0f8843232}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{73a6fe31-595d-460b-a920-fcc0f8843232}/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "navbar"
+            },
+            "{bbb880ce-43c9-47ae-b746-c3e0096c5b76}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{bbb880ce-43c9-47ae-b746-c3e0096c5b76}/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "addon@darkreader.org": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/addon@darkreader.org/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "tridactyl.vim@cmcaine.co.uk": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/tridactyl.vim@cmcaine.co.uk/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "uBlock0@raymondhill.net": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi",
+                "installation_mode": "normal_installed",
+                "private_browsing": true, 
+                "default_area": "menupanel"
+            },
+            "google@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
+            "bing@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
+            "amazondotcom@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
+            "ebay@search.mozilla.org": {
+                "installation_mode": "blocked"
+            },
+            "twitter@search.mozilla.org": {
+                "installation_mode": "blocked"
+            }
+        },
+        "Preferences": {
+            "browser.translations.enable": false,
+            "dom.event.contextmenu.enabled": false,
+            "layers.acceleration.force-enabled": true,
+            "layout.frame_rate": 0,
+            "media.videocontrols.picture-in-picture.enabled": false,
+            "privacy.fingerprintingProtection.overrides": "+AllTargets,-CSSPrefersColorScheme",
+            "webgl.disabled": false,
+            "browser.startup.page": 3,
+            "browser.toolbars.bookmarks.visibility": "never",
+            "extensions.activeThemeID": "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}",
+            "gfx.webrender.all": true,
+            "layout.css.prefers-color-scheme.content-override": 0,
+            "ui.systemUsesDarkTheme": true
+        },
+        "SearchEngines": {
+            "PreventInstalls": false,
+            "Remove": [
+                "Wikipedia (en)",
+                "Google",
+                "Bing",
+                "Amazon.com",
+                "eBay",
+                "Twitter",
+                "Perplexity"
+            ],
+            "Default": "DuckDuckGo"
+        },
+        "SkipTermsOfUse": true,
+        "SupportMenu": {
+            "Title": "LibreWolf Issue Tracker",
+            "URL": "https://codeberg.org/librewolf/issues"
+        }
+    }
+}
