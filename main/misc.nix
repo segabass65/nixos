@@ -10,9 +10,9 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-      "librewolf-bin-146.0.1-1"
-      "librewolf-bin-unwrapped-146.0.1-1"
-      "ventoy-qt5-1.1.07"
+      "librewolf-bin-148.0-1"
+      "librewolf-bin-unwrapped-148.0-1"
+      "ventoy-qt5-1.1.10"
     ];
   };
 
