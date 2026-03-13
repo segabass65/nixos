@@ -1,21 +1,11 @@
-{ bootloader, host, pkgs, ... }: {
+{ bootloader, hostName, pkgs, ... }: {
   boot.loader.${bootloader}.enable = true;
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;
 
-  networking.hostName = host.name;
-
+  networking.hostName = hostName;
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "librewolf-bin-148.0-1"
-      "librewolf-bin-unwrapped-148.0-1"
-      "ventoy-qt5-1.1.10"
-    ];
-  };
-
   system.stateVersion = "25.11";
 
   virtualisation.libvirtd = {

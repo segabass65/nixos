@@ -1,4 +1,4 @@
-{ config, host, lib, modulesPath, ... }: {
+{ config, lib, modulesPath, platform, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -56,7 +56,7 @@
     };
   };
 
-  nixpkgs.hostPlatform = lib.mkDefault host.platform;
+  nixpkgs.hostPlatform = lib.mkDefault platform.name;
   services.xserver.videoDrivers = [ "nvidia" ];
   time.timeZone = "Europe/Moscow";
 }
