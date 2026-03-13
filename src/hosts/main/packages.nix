@@ -11,6 +11,7 @@
     feh
     freetube
     git
+    git-filter-repo
     gum
     htop
     hyprpaper
