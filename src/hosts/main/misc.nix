@@ -1,5 +1,5 @@
 { bootloader, hostName, pkgs, ... }: {
-  boot.loader.${bootloader}.enable = true;
+  boot.loader.systemd-boot.enable = true;
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;

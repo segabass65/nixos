@@ -23,10 +23,7 @@
     ...
   }: {
 
-    nixosConfigurations = let
-      os = "GNU/Linux";
-      
-    in {
+    nixosConfigurations = {
       main = let
         hostName = "main";
         platform = {
@@ -34,7 +31,6 @@
           isNixos = true;
         };
 
-        bootloader = "systemd-boot";
         theme = "mocha";
 
         pkgsSettings = {
@@ -83,9 +79,8 @@
         ];
 
         specialArgs = {
-          inherit os;
           inherit hostName platform;
-          inherit bootloader theme;
+          inherit theme;
           inherit pkgsUnstable;
         };
       };
