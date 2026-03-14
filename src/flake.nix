@@ -26,15 +26,12 @@
     nixosConfigurations = {
       main = let
         hostName = "main";
-        platform = {
-          name = "x86_64-linux";
-          isNixos = true;
-        };
+        platform = "x86_64-linux";
 
         theme = "mocha";
 
         pkgsSettings = {
-          system = platform.name;
+          system = platform;
           config = {
             allowUnfree = true;
             permittedInsecurePackages = [
@@ -68,6 +65,7 @@
                   
                   imports = [
                     ./users/segabass65
+                    catppuccin.homeModules.catppuccin
                   ];
                 };
               };
@@ -89,13 +87,10 @@
     homeConfigurations = {
       segabass65 = let
         username = "segabass65";
-        platform = {
-          name = "x86_64-linux";
-          isNixos = false;
-        };
+        platform = "x86_64-linux";
 
         pkgsSettings = {
-          system = platform.name;
+          system = platform;
           config.allowUnfree = true;
         };
 
@@ -110,6 +105,7 @@
 
         modules = [
           ./users/${username}
+          catppuccin.homeModules.catppuccin
         ];
 
         pkgs = pkgsStable;

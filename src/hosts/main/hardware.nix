@@ -56,7 +56,7 @@
     };
   };
 
-  nixpkgs.hostPlatform = lib.mkDefault platform.name;
+  nixpkgs.hostPlatform = lib.mkDefault platform;
   services.xserver.videoDrivers = [ "nvidia" ];
   time.timeZone = "Europe/Moscow";
 }

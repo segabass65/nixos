@@ -2,7 +2,6 @@
   boot.loader.systemd-boot.enable = true;
 
   catppuccin.enable = true;
-  catppuccin.cursors.enable = true;
 
   networking.hostName = hostName;
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
