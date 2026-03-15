@@ -20,7 +20,6 @@
     maim
     nftables
     p7zip
-    picom-pijulius
     polybar
     prismlauncher
     protonup-qt
