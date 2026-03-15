@@ -15,7 +15,6 @@
     htop
     hyprpaper
     libreoffice-qt-fresh
-    librewolf-bin
     lutris
     maim
     nftables

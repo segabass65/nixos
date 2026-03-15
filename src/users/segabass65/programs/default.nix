@@ -2,6 +2,7 @@
   imports = [
     ./fastfetch.nix
     ./kitty.nix
+    ./librewolf
   ];
 
   programs = {
