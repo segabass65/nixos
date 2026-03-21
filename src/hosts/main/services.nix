@@ -4,8 +4,8 @@
     displayManager.sddm.enable = true;
     xserver = {
       enable = true;
+      displayManager.startx.enable = true;
       dpi = 96;
-      windowManager.bspwm.enable = true;
       xkb = {
         layout = "us, ru";
         options = "grp:alt_shift_toggle";

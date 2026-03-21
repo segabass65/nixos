@@ -27,7 +27,6 @@
     sleek-todo
     smartmontools
     spotdl
-    sxhkd
     toilet
     tree
     tty-clock

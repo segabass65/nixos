@@ -4,5 +4,6 @@
     ./home.nix
     ./programs
     ./services
+    ./xsession
   ];
 }

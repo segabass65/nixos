@@ -1,7 +1,11 @@
 { ... }: {
   services.polybar = {
     enable = true;
-    script = "true";
+    script = ''
+      polybar bspwm-DP-2 &
+      polybar bspwm-DP-0 &
+    '';
+    
     settings = {
       "bar/bspwm-DP-2" = {
         "inherit" = "bar/bspwm";
@@ -29,6 +33,8 @@
         bottom = true;
 
         font-0 = "JetBrainsMono Nerd Font:style=Bold:size=10;3";
+
+        override-redirect = true;
         wm-restack = "bspwm";
       };
 
