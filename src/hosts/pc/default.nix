@@ -1,4 +1,4 @@
-{ hostName, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./hardware.nix
     ./packages.nix
@@ -11,7 +11,6 @@
 
   catppuccin.enable = true;
 
-  networking.hostName = hostName;
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
   system.stateVersion = "25.11";
 

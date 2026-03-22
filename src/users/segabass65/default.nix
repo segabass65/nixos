@@ -1,9 +1,13 @@
-{ ... }: {
+{ config, ... }: {
   imports = [
     ./catppuccin.nix
-    ./home.nix
     ./programs
     ./services
     ./xsession
   ];
+
+  home = {
+    homeDirectory = "/home/${config.home.username}";
+    stateVersion = "25.11";
+  };
 }

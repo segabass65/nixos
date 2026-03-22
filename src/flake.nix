@@ -24,8 +24,6 @@
   }: {
     nixosConfigurations = {
       pc = let
-        hostName = "pc";
-
         pkgsSettings = {
           system = "x86_64-linux";
           config = {
@@ -39,46 +37,49 @@
         pkgsUnstable = import nixpkgs-unstable pkgsSettings;
 
       in nixpkgs.lib.nixosSystem {
-        modules = [
+        modules = let
+          hostName = "pc";
+
+        in [
           {
             imports = [
-              ./hosts
+              ./hosts/${hostName}
               catppuccin.nixosModules.catppuccin
               home-manager.nixosModules.home-manager
             ];
 
             home-manager = {
-              extraSpecialArgs.pkgsUnstable = pkgsUnstable;
+              extraSpecialArgs = { inherit pkgsUnstable; };
               useGlobalPkgs = true;
 
               users = {
-                segabass65 = {
-                  _module.args.username = "segabass65";
-                  
+                segabass65 = let
+                  username = "segabass65";
+                
+                in {
                   imports = [
-                    ./users/segabass65
+                    ./users/${username}
                     catppuccin.homeModules.catppuccin
                   ];
+
+                  home = { inherit username; };
                 };
               };
 
               useUserPackages = true;
             };
 
+            networking = { inherit hostName; };
             nixpkgs = pkgsSettings;
           }
         ];
 
-        specialArgs = {
-          inherit hostName pkgsUnstable;
-        };
+        specialArgs = { inherit pkgsUnstable; };
       };
     };
 
     homeConfigurations = {
       segabass65 = let
-        username = "segabass65";
-
         pkgsSettings = {
           system = "x86_64-linux";
           config.allowUnfree = true;
@@ -90,13 +91,20 @@
       in home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = {
-          inherit username pkgsUnstable;
-        };
+        extraSpecialArgs = { inherit pkgsUnstable; };
 
-        modules = [
-          ./users/${username}
-          catppuccin.homeModules.catppuccin
+        modules = let
+          username = "segabass65";
+          
+        in [
+          {
+            imports = [
+              ./users/${username}
+              catppuccin.homeModules.catppuccin
+            ];
+
+            home = { inherit username; };
+          }
         ];
       };
     };
