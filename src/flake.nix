@@ -22,14 +22,12 @@
     catppuccin,
     ...
   }: {
-
     nixosConfigurations = {
       pc = let
         hostName = "pc";
-        platform = "x86_64-linux";
 
         pkgsSettings = {
-          system = platform;
+          system = "x86_64-linux";
           config = {
             allowUnfree = true;
             permittedInsecurePackages = [
@@ -50,11 +48,9 @@
             ];
 
             home-manager = {
-              extraSpecialArgs = {
-                inherit platform;
-                inherit pkgsUnstable;
-              };
+              extraSpecialArgs.pkgsUnstable = pkgsUnstable;
               useGlobalPkgs = true;
+
               users = {
                 segabass65 = {
                   _module.args.username = "segabass65";
@@ -65,16 +61,16 @@
                   ];
                 };
               };
+
               useUserPackages = true;
             };
 
-            nixpkgs.config = pkgsSettings.config;
+            nixpkgs = pkgsSettings;
           }
         ];
 
         specialArgs = {
-          inherit hostName platform;
-          inherit pkgsUnstable;
+          inherit hostName pkgsUnstable;
         };
       };
     };
@@ -82,28 +78,26 @@
     homeConfigurations = {
       segabass65 = let
         username = "segabass65";
-        platform = "x86_64-linux";
 
         pkgsSettings = {
-          system = platform;
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
 
-        pkgsStable = import nixpkgs pkgsSettings;
+        pkgs = import nixpkgs pkgsSettings;
         pkgsUnstable = import nixpkgs-unstable pkgsSettings;
 
       in home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
         extraSpecialArgs = {
-          inherit username platform;
-          inherit pkgsUnstable;
+          inherit username pkgsUnstable;
         };
 
         modules = [
           ./users/${username}
           catppuccin.homeModules.catppuccin
         ];
-
-        pkgs = pkgsStable;
       };
     };
   };

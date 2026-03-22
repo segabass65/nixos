@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, platform, ... }: {
+{ config, lib, modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -17,7 +17,7 @@
     "/boot" = {
       device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
     "/home" = {
       device = "/dev/disk/by-label/HOME";
@@ -42,21 +42,16 @@
   };
 
   hardware = {
-    cpu.intel.updateMicrocode = lib.mkDefault
-      config.hardware.enableRedistributableFirmware;
+    cpu.intel.updateMicrocode = true;
 
     graphics = {
       enable = true;
       enable32Bit = true;
     };
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      open = false;
-    };
+    
+    nvidia.open = true;
   };
 
-  nixpkgs.hostPlatform = lib.mkDefault platform;
   services.xserver.videoDrivers = [ "nvidia" ];
   time.timeZone = "Europe/Moscow";
 }
