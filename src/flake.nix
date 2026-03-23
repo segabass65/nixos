@@ -21,7 +21,7 @@
     home-manager,
     catppuccin,
     ...
-  }: {
+  } @ inputs: {
     nixosConfigurations = {
       pc = let
         pkgsSettings = {
@@ -48,33 +48,16 @@
               home-manager.nixosModules.home-manager
             ];
 
-            home-manager = {
-              extraSpecialArgs = { inherit pkgsUnstable; };
-              useGlobalPkgs = true;
-
-              users = {
-                segabass65 = let
-                  username = "segabass65";
-                
-                in {
-                  imports = [
-                    ./users/${username}
-                    catppuccin.homeModules.catppuccin
-                  ];
-
-                  home = { inherit username; };
-                };
-              };
-
-              useUserPackages = true;
-            };
-
             networking = { inherit hostName; };
             nixpkgs = pkgsSettings;
           }
         ];
 
-        specialArgs = { inherit pkgsUnstable; };
+        specialArgs = {
+          inherit self;
+          inherit inputs;
+          inherit pkgsUnstable;
+        };
       };
     };
 

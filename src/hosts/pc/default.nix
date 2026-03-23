@@ -4,7 +4,7 @@
     ./packages.nix
     ./programs.nix
     ./services.nix
-    ./users.nix
+    ./users
   ];
 
   boot.loader.systemd-boot.enable = true;
