@@ -22,6 +22,32 @@
     catppuccin,
     ...
   } @ inputs: {
+
+    lib = {
+      syncedHomeConfiguration = {
+        homeManagerConfiguration,
+        os,
+        username
+      }: homeManagerConfiguration {
+
+        pkgs = os.pkgs;
+
+        extraSpecialArgs = {
+          osConfig = os.config;
+        } // (os.config.home-manager.extraSpecialArgs);
+
+        modules = [
+          {
+            imports = [
+              ./users/${username}
+            ];
+
+            home = { inherit username; };
+          }
+        ];
+      };
+    };
+
     nixosConfigurations = {
       pc = let
         pkgsSettings = {
@@ -62,28 +88,10 @@
     };
 
     homeConfigurations = {
-      segabass65 = let
+      segabass65 = self.lib.syncedHomeConfiguration {
+        homeManagerConfiguration = home-manager.lib.homeManagerConfiguration;
         os = self.nixosConfigurations.pc;
-
-      in home-manager.lib.homeManagerConfiguration {
-        pkgs = os.pkgs;
-
-        extraSpecialArgs = {
-          osConfig = os.config;
-        } // (os.config.home-manager.extraSpecialArgs);
-
-        modules = let
-          username = "segabass65";
-          
-        in [
-          {
-            imports = [
-              ./users/${username}
-            ];
-
-            home = { inherit username; };
-          }
-        ];
+        username = "segabass65";
       };
     };
   };
