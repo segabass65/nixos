@@ -1,10 +1,12 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [
     ./hardware.nix
     ./packages.nix
     ./programs.nix
     ./services.nix
     ./users
+    inputs.catppuccin.nixosModules.catppuccin
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   boot.loader.systemd-boot.enable = true;

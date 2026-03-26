@@ -1,10 +1,10 @@
-{ inputs, pkgs, self, ... }: let
+{ inputs, pkgs, ... }: let
   username = "segabass65";
 
 in {
   home-manager.users.${username} = {
     imports = [
-      "${self}/users/${username}"
+      "${inputs.self}/users/${username}"
     ];
 
     home = { inherit username; };
