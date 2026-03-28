@@ -8,7 +8,7 @@
       inherit inputs;
       inherit pkgsUnstable;
 
-      isServer = false;
+      isServer = true;
     };
     
     useGlobalPkgs = true;

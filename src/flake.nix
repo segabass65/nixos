@@ -104,6 +104,22 @@
           pkgsUnstable = import nixpkgs-unstable pkgsSettings;
         };
       };
+
+      srv = let
+        pkgsSettings = {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+
+      in self.lib.nixos.system {
+        inherit nixpkgs pkgsSettings;
+        
+        hostName = "srv";
+
+        specialArgs = {
+          pkgsUnstable = import nixpkgs-unstable pkgsSettings;
+        };
+      };
     };
 
     homeConfigurations = {
@@ -111,6 +127,13 @@
         inherit home-manager;
 
         os = self.nixosConfigurations.pc;
+        username = "segabass65";
+      };
+
+      "segabass65@srv" = self.lib.homeManager.config {
+        inherit home-manager;
+
+        os = self.nixosConfigurations.srv;
         username = "segabass65";
       };
     };

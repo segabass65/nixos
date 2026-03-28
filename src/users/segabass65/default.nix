@@ -1,10 +1,17 @@
-{ config, inputs, osConfig, ... }: {
-  imports = [
-    ./programs
+{ config, inputs, isServer, osConfig, ... }: let
+  modules = {
+    server = [
+      ./programs
+      inputs.catppuccin.homeModules.catppuccin
+    ];
+    desktop = [
     ./services
     ./xsession
-    inputs.catppuccin.homeModules.catppuccin
-  ];
+    ] ++ modules.server;
+  };
+
+in {
+  imports = if isServer then modules.server else modules.desktop;
 
   catppuccin = {
     enable = osConfig.catppuccin.enable;

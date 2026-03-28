@@ -1,13 +1,20 @@
-{ ... }: {
-  imports = [
-    ./fastfetch.nix
-    ./kitty.nix
-    ./librewolf
-    ./zsh.nix
-  ];
+{ isServer, ... }: let
+  modules = {
+    server = [
+      ./fastfetch.nix
+      ./zsh.nix
+    ];
+    desktop = [
+      ./kitty.nix
+      ./librewolf
+    ] ++ modules.server;
+  };
+
+in {
+  imports = if isServer then modules.server else modules.desktop;
 
   programs = {
-    cava.enable = true;
+    cava.enable = !isServer;
     home-manager.enable = true;
   };
 }
