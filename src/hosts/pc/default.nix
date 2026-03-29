@@ -9,7 +9,11 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    kernelPackages = pkgs.linuxPackagesFor pkgs.linuxKernel.kernels.linux_zen;
+  };
+  
   catppuccin.enable = true;
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
   system.stateVersion = "25.11";
