@@ -6,8 +6,8 @@
       inputs.catppuccin.homeModules.catppuccin
     ];
     desktop = [
-    ./services
-    ./xsession
+      ./services
+      ./xsession
     ] ++ modules.server;
   };
 
@@ -22,6 +22,6 @@ in {
   
   home = {
     homeDirectory = "/home/${config.home.username}";
-    stateVersion = "25.11";
+    stateVersion = osConfig.system.stateVersion;
   };
 }
