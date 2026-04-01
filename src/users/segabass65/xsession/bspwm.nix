@@ -24,5 +24,9 @@
       focused_border_color = "#cba6f7";
       normal_border_color = "#45475a";
     };
+
+    startupPrograms = [
+      "systemctl --user restart polybar.service"
+    ];
   };
 }
