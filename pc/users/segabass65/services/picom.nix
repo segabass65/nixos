@@ -9,6 +9,7 @@
         "window_type = 'dock'"
         "class_g = 'Polybar'"
       ];
+      use-damage = false;
     };
   };
 }
