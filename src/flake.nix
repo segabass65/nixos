@@ -34,52 +34,46 @@
   } @ inputs: {
 
     lib = {
-      nixos = {
-        dir = hostName: ./hosts/${hostName};
+      nixosSystem = {
+        nixpkgs,
+        hostName,
+        pkgsSettings,
+        specialArgs,
+        ...
+      }: nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            imports = [ ./${hostName} ];
+            networking = { inherit hostName; };
+            nixpkgs = pkgsSettings;
+          }
+        ];
 
-        system = {
-          nixpkgs,
-          hostName,
-          pkgsSettings,
-          specialArgs,
-          ...
-        }: nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              imports = [ (self.lib.nixos.dir hostName) ];
-              networking = { inherit hostName; };
-              nixpkgs = pkgsSettings;
-            }
-          ];
-
-          specialArgs = {
-            inherit inputs;
-          } // (specialArgs);
-        };
+        specialArgs = {
+          inherit inputs;
+        } // (specialArgs);
       };
 
-      homeManager = {
-        dir = username: ./users/${username};
+      homeManagerConfiguration = {
+        home-manager,
+        os,
+        username
+      }: home-manager.lib.homeManagerConfiguration {
+        pkgs = os.pkgs;
 
-        config = {
-          home-manager,
-          os,
-          username
-        }: home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = {
+          osConfig = os.config;
+        } // (os.config.home-manager.extraSpecialArgs);
 
-          pkgs = os.pkgs;
+        modules = [
+          {
+            imports = [
+              ./${os.config.networking.hostName}/users/${username}
+            ];
 
-          extraSpecialArgs = {
-            osConfig = os.config;
-          } // (os.config.home-manager.extraSpecialArgs);
-
-          modules = [
-            {
-              imports = [ (self.lib.homeManager.dir username) ];
-              home = { inherit username; };
-            }
-          ];
-        };
+            home = { inherit username; };
+          }
+        ];
       };
     };
 
@@ -95,7 +89,7 @@
           };
         };
 
-      in self.lib.nixos.system {
+      in self.lib.nixosSystem {
         inherit nixpkgs pkgsSettings;
         
         hostName = "pc";
@@ -111,7 +105,7 @@
           config.allowUnfree = true;
         };
 
-      in self.lib.nixos.system {
+      in self.lib.nixosSystem {
         inherit nixpkgs pkgsSettings;
         
         hostName = "srv";
@@ -123,14 +117,14 @@
     };
 
     homeConfigurations = {
-      "segabass65@pc" = self.lib.homeManager.config {
+      "segabass65@pc" = self.lib.homeManagerConfiguration {
         inherit home-manager;
 
         os = self.nixosConfigurations.pc;
         username = "segabass65";
       };
 
-      "segabass65@srv" = self.lib.homeManager.config {
+      "segabass65@srv" = self.lib.homeManagerConfiguration {
         inherit home-manager;
 
         os = self.nixosConfigurations.srv;

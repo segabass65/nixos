@@ -3,20 +3,13 @@
 
 in {
   home-manager.users.${username} = {
-    imports = [
-      "${inputs.self}/users/${username}"
-    ];
-
+    imports = [ ./${username} ];
+    
     home = { inherit username; };
   };
 
   users.users.${username} = {
-    extraGroups = [
-      "kvm"
-      "libvirtd"
-      "wheel"
-    ];
-
+    extraGroups = [ "wheel" ];
     isNormalUser = true;
     shell = pkgs.zsh;
   };

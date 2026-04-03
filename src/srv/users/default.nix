@@ -7,8 +7,6 @@
     extraSpecialArgs = {
       inherit inputs;
       inherit pkgsUnstable;
-
-      isServer = true;
     };
     
     useGlobalPkgs = true;
