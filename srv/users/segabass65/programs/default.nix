@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   imports = [
     ./fastfetch.nix
     ./zsh.nix
