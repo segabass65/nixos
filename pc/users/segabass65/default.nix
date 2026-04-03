@@ -1,6 +1,6 @@
-{ config, inputs, osConfig, ... }: {
+{ inputs, osConfig, ... }: {
   imports = [
-    ./packages.nix
+    ./home.nix
     ./programs
     ./services
     ./xsession
@@ -11,10 +11,5 @@
     enable = osConfig.catppuccin.enable;
     accent = osConfig.catppuccin.accent;
     flavor = osConfig.catppuccin.flavor;
-  };
-  
-  home = {
-    homeDirectory = "/home/${config.home.username}";
-    stateVersion = osConfig.system.stateVersion;
   };
 }
