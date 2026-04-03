@@ -2,6 +2,6 @@
   imports = [
     ./picom.nix
     ./polybar.nix
-    ./sxhkd
+    ./sxhkd.nix
   ];
 }

@@ -12,6 +12,7 @@
         fi
       '';
     };
+
     ".local/bin/toggle_floating.sh" = {
       executable = true;
       text = ''
@@ -24,6 +25,7 @@
         fi
       '';
     };
+    
     ".local/bin/toggle_tiled_sticky.sh" = {
       executable = true;
       text = ''

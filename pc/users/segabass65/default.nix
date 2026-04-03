@@ -1,6 +1,6 @@
 { config, inputs, lib, osConfig, ... }: {
   imports = [
-    ./home.nix
+    ./home
     ./programs
     ./services
     ./xsession
