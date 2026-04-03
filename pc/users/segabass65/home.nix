@@ -5,9 +5,11 @@
     packages = with pkgs; [
       argbash
       cmatrix
+      efibootmgr
       git-filter-repo
       htop
       maim
+      nerd-fonts.jetbrains-mono
       ouch
       protonup-rs
       tree
