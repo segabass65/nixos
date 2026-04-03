@@ -3,6 +3,7 @@
     enable = true;
     displayManager.startx.enable = true;
     dpi = 96;
+    videoDrivers = [ "nvidia" ];
     xkb = {
       layout = "us, ru";
       options = "grp:alt_shift_toggle";
