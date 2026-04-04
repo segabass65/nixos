@@ -1,5 +1,6 @@
 { ... }: {
   services.sxhkd = {
+    enable = true;
     keybindings = {
       "super + Return" =
         "kitty";
@@ -14,7 +15,7 @@
         "bspc desktop -l next";
 
       "super + f" =
-        "bspc node -t ~fullscreen";
+        "bspc node -t '~fullscreen'";
 
       "super + t" =
         "~/.local/bin/toggle_floating.sh";
@@ -41,7 +42,7 @@
         "bspc node -{n,s} {west,south,north,east} -f";
 
       "super + {_,shift + }n" =
-        "bspc node -f {next,prev}.local.!hidden.window";
+        "bspc node -f {next,prev}.local.window";
 
       "super + bracket{left,right}" =
         "bspc desktop -f {prev,next}.local";
@@ -51,9 +52,6 @@
 
       "super + shift + {1-9,0}" =
         "bspc node -d {1-9,10} -f";
-
-      "super + ctrl + {h,j,k,l}" =
-        "bspc node -p {west,south,north,east}";
 
       "super + alt + {h,j,k,l}" =
         "bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
