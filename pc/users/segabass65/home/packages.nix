@@ -6,6 +6,7 @@
     git-filter-repo
     hsetroot
     htop
+    krita
     maim
     nerd-fonts.jetbrains-mono
     ouch
