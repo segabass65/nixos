@@ -43,7 +43,7 @@
       }: nixpkgs.lib.nixosSystem {
         modules = [
           {
-            imports = [ ./${hostName} ];
+            imports = [ ./hosts/${hostName} ];
             networking = { inherit hostName; };
             nixpkgs = pkgsSettings;
           }
@@ -68,7 +68,7 @@
         modules = [
           {
             imports = [
-              ./${os.config.networking.hostName}/users/${username}
+              ./hosts/${os.config.networking.hostName}/users/${username}
             ];
 
             home = { inherit username; };
