@@ -13,5 +13,29 @@
         '';
       };
     };
+
+    "config-generator/polybar/config.ini" = {
+      text = inputs.config-generator.lib.toPolybar {
+        config = {
+          "module/config" = {
+            type = "custom/text";
+            label = "Hello World";
+          };
+        };
+
+        settings = {
+          "module/settings" = {
+            type = "custom/text";
+            label = "Hello World";
+          };
+        };
+
+        extraConfig = ''
+          [module/extraConfig]
+          type=custom/text
+          label=Hello World
+        '';
+      };
+    };
   };
 }

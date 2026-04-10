@@ -48,8 +48,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1775394704,
-        "narHash": "sha256-aMEnBBbJWJQR8JKCU287zCpXfb9fXfafJVo/le+CvfE=",
+        "lastModified": 1775830891,
+        "narHash": "sha256-oK9cb8MQ5LMvbjwB7XlpEKKsqAjt3ePXmhlDnekWleg=",
         "path": "/repos/segabass65/nix-config-generator",
         "type": "path"
       },
