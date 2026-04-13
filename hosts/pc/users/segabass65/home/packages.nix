@@ -4,6 +4,7 @@
     cmatrix
     efibootmgr
     git-filter-repo
+    gnumake
     hsetroot
     htop
     krita
