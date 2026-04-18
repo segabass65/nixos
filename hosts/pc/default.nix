@@ -16,6 +16,7 @@
   networking.firewall.trustedInterfaces = [ "virbr0" ];
   networking.nftables.enable = true;
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
+  security.rtkit.enable = true;
   system.stateVersion = "25.11";
   time.timeZone = "Europe/Moscow";
 
