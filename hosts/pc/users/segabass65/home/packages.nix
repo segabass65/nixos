@@ -15,8 +15,6 @@
     tty-clock
     ventoy
     wget
-    wmutils-core
     xclip
-    xtitle
   ];
 }
