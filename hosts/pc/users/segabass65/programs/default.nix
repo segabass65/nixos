@@ -1,24 +1,15 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   imports = [
     ./fastfetch.nix
+    ./git.nix
     ./kitty.nix
     ./librewolf
+    ./vscode.nix
     ./zsh.nix
   ];
 
   programs = {
     cava.enable = true;
-
-    git = {
-      enable = true;
-      settings = {
-        user = {
-          name = config.home.username;
-          email = "segabass65@proton.me";
-        };
-      };
-    };
-
     home-manager.enable = true;
     lutris.enable = true;
     neovim.enable = true;
@@ -27,14 +18,5 @@
     uv.enable = true;
     vesktop.enable = true;
     vifm.enable = true;
-
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
-        jnoortheen.nix-ide
-        vscodevim.vim
-      ];
-    };
   };
 }
