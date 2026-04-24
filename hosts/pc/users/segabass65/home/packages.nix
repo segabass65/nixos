@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     cmatrix
+    corefonts
     efibootmgr
     git-filter-repo
     hsetroot
